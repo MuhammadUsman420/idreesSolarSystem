@@ -1,0 +1,653 @@
+<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Drawing tools</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=drawing,geometry,places&key=AIzaSyAt_Vn--VjkE5O6GbI4jtXqXCwUdOkqvVw
+  &callback=initMap"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+  </script>
+
+
+  <style>
+
+  </style>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <script>
+
+
+
+  </script>
+
+</head>
+
+<body>
+
+
+  <header>
+    <div class="main-header">
+      <div class="main-header__inner" id="apply_height">
+        <div class="grid">
+          <div class="grid__item s0-s6">
+            <div>
+              <div class="main-header__logo"><a aria-current="page" class="" href="home.html"><svg
+                    id="logo-vodasun_svg__Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 181 33"
+                    style="enable-background:new 0 0 181 33" xml:space="preserve" type="logo">
+                    <style>
+                      .logo-vodasun_svg__st0 {
+                        fill: none
+                      }
+
+                      .logo-vodasun_svg__st1 {
+                        fill-rule: evenodd;
+                        clip-rule: evenodd;
+                        fill: #ff8c22
+                      }
+                    </style>
+                    <path class="logo-vodasun_svg__st0"
+                      d="M12.2 23.3 17.4.5h7l-9 31.4H8.9L0 .5h7l5.2 22.8zM60.2 31.9V.5h8.3c3.7 0 6.6 1.2 8.8 3.5 2.2 2.3 3.3 5.5 3.3 9.6v5.1c0 4.1-1.1 7.4-3.3 9.7-2.2 2.4-5.2 3.5-9 3.5h-8.1zm6.4-26.1v20.8h1.9c2.1 0 3.6-.6 4.5-1.7.9-1.1 1.3-3 1.4-5.8v-5.5c0-2.9-.4-5-1.2-6.1S71 5.7 69 5.7h-2.4v.1zM99.4 25.5h-8.6l-1.7 6.4h-6.7L92.1.5H98l9.8 31.4h-6.7l-1.7-6.4zm-7.2-5.3H98L95.1 9l-2.9 11.2zM123.7 23.6c0-1.3-.3-2.2-1-2.9-.7-.6-1.8-1.3-3.5-2-3.1-1.2-5.4-2.6-6.7-4.2s-2.1-3.5-2.1-5.6c0-2.6.9-4.7 2.8-6.3 1.9-1.6 4.2-2.4 7.1-2.4 1.9 0 3.6.4 5.1 1.2 1.5.8 2.6 1.9 3.4 3.4.8 1.5 1.2 3.1 1.2 5h-6.3c0-1.5-.3-2.6-.9-3.3-.6-.8-1.5-1.1-2.7-1.1-1.1 0-1.9.3-2.6 1-.6.6-.9 1.5-.9 2.6 0 .9.3 1.6 1 2.3.7.7 1.9 1.4 3.6 2.2 3 1.1 5.2 2.4 6.6 4 1.4 1.6 2.1 3.6 2.1 6.1 0 2.7-.9 4.8-2.6 6.4-1.7 1.5-4.1 2.3-7 2.3-2 0-3.8-.4-5.5-1.2-1.7-.8-2.9-2-3.9-3.6-.9-1.5-1.4-3.4-1.4-5.5h6.3c0 1.8.3 3.1 1 3.9.7.8 1.8 1.2 3.4 1.2 2.4 0 3.5-1.2 3.5-3.5zM154.4.5v21.6c0 3.2-.9 5.7-2.7 7.5-1.7 1.7-4.2 2.6-7.5 2.6s-5.8-.9-7.6-2.6c-1.8-1.7-2.6-4.3-2.6-7.6V.5h6.3V22c0 1.8.3 3 .9 3.8.6.8 1.6 1.1 3.1 1.1s2.5-.4 3.1-1.1c.6-.8.8-2 .9-3.7V.5h6.1zM181 32h-6.2l-9.1-20.6V32h-6.2V.6h6.2l9.2 20.6V.6h6.2L181 32z">
+                    </path>
+                    <path class="logo-vodasun_svg__st1"
+                      d="M31.5 3.6c0 .2 0 .3.3.5l6.4 7.6c.2.3.5.4.8.5.3.1.6-.1.9-.3.2-.2.3-.5.3-.9V1.1c0-.4 0-.4-.1-.6-.1-.2-.2-.2-.4-.2-2.8.2-5.5 1.2-7.9 2.9-.2.1-.3.2-.3.4zM25.6 12.6c.1.1.2.2.5.2l9.8 1.7c.3.1.7 0 .9-.1.3-.2.4-.5.5-.8 0-.3-.1-.6-.3-.9l-5-5.9-1.4-1.7c-.2-.3-.3-.3-.5-.3s-.3 0-.4.1c-2 1.9-3.5 4.4-4.2 7.3-.1.1-.1.3.1.4zM26.8 23.3c.2 0 .3 0 .6-.2l8.6-5c.3-.2.5-.4.6-.7.1-.3 0-.6-.2-.9-.2-.3-.5-.4-.8-.5L28 14.8l-2.1-.4c-.3-.1-.4 0-.6 0-.2.1-.2.2-.2.3-.3 2.8.2 5.6 1.4 8.3 0 .2.1.3.3.3zM34.6 30.7c.1-.1.2-.2.3-.5l3.4-9.3c.1-.3.1-.6 0-.9-.1-.3-.4-.5-.7-.6-.3-.1-.6 0-.9.2L30 23.5l-1.9 1.1c-.3.2-.4.3-.4.4-.1.2 0 .3 0 .4 1.6 2.3 3.8 4.2 6.4 5.4.2 0 .4 0 .5-.1zM45.4 31.3c0-.1.1-.3-.1-.6l-3.4-9.3c-.1-.3-.3-.6-.6-.7-.3-.2-.6-.1-.9 0-.3.1-.5.4-.6.7l-2.6 7.3-.7 2c-.1.3-.1.4-.1.6.1.2.2.3.3.3 2.7.7 5.6.8 8.4 0 .1 0 .2-.1.3-.3zM54 24.9c-.1-.1-.1-.2-.4-.4l-8.6-5c-.3-.2-.6-.2-.9-.2-.3.1-.6.3-.7.6-.1.3-.1.6 0 .9l2.6 7.3.7 2c.1.3.2.4.3.5.2.1.3.1.4.1 2.5-1.2 4.8-3 6.4-5.4.2-.1.3-.2.2-.4zM56.5 14.4c-.1-.1-.2-.1-.6 0l-9.8 1.7c-.3.1-.6.2-.8.5-.2.3-.2.6-.2.9.1.3.3.5.6.7l6.7 3.9 1.9 1.1c.3.2.4.2.6.2.2 0 .3-.1.3-.2 1.2-2.5 1.7-5.3 1.5-8.3 0-.2 0-.4-.2-.5zM51.7 4.8c-.1 0-.3.1-.5.3l-6.4 7.6c-.2.3-.3.6-.3.9 0 .3.2.6.5.8.3.2.6.2.9.1l7.6-1.3 2.1-.4c.3-.1.4-.1.5-.2.1-.1.1-.3.1-.4-.7-2.7-2.1-5.2-4.2-7.3 0 0-.1-.1-.3-.1zM41.8.6c-.1.1-.1.2-.1.6V11c0 .4.1.6.3.9.2.3.5.3.9.3.3 0 .6-.2.8-.5l5-5.9L50 4.2c.2-.3.2-.4.3-.5 0-.2-.1-.3-.2-.4-2.3-1.6-5-2.6-7.9-2.9-.1 0-.3 0-.4.2z">
+                    </path>
+                  </svg></a></div>
+            </div>
+          </div>
+          <div class="grid__item s0-s6">
+            <div class="main-header__navigation topnav" id="myTopnav">
+              <div class="h-dis-fl h-jus-fl-e change_directions_responsive" style="align-items:center">
+                <div class="nav-item">
+                  <div class="caption fh--clr-brand-one fh--weight-600">
+                    <a
+                      href="file:///C:/Users/My%20Computer/Desktop/SolarSystemFromJavascript/AliMapUpdates/solar/solar-ui-js/index.html">Tool</a>
+                  </div>
+                </div>
+                <div class="nav-item">
+                  <div class="caption fh--clr-brand-one fh--weight-600">Wir bieten</div>
+                </div>
+                <div class="nav-item"><a href="ueber-uns.html">
+                    <div class="caption fh--clr-brand-one fh--weight-600">Über Uns</div>
+                  </a>
+                </div>
+                <div class="nav-item"><a href="magazin/index.html">
+                    <div class="caption fh--clr-brand-one fh--weight-600">Neuigkeiten</div>
+                  </a>
+                </div>
+                <span class="gap-l-l"><a class="link-button" href="mailto:kontak@vodasun.de" target="_blank"
+                    title="Kontakt">Kontakt</a></span>
+              </div>
+            </div>
+            <div class="main-header__mobile-navigation">
+              <div onclick="myFunction()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                  height="24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+                </svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-header__shadow"></div>
+    </div>
+
+  </header>
+
+  <div class="row remove_margin_bottom" style="margin-bottom: 50px; margin-top: 30px;">
+
+
+
+
+    <div class="col-md-6 scroll" style="overflow-y: auto; height: 500px;">
+      <div class="pagination_parent">
+        <div class="pagination_bar">
+          <div class="bar"></div>
+          <div class="pages">
+            <span class="dot" id="first_page_for_color" onclick="goToFirstPage()"><a href="#first_page">1</a></span>
+            <span class="dot" id="second_page_for_color" onclick="GoToSecondPage()"><a href="#second_page">2</a></span>
+            <!-- <span class="dot" onclick="goToThirdPage()"><a href="#3">3</a></span> -->
+            <span class="dot" id="third_page_for_color" onclick="goToThirdPage()"><a href="#third_page">3</a></span>
+            <span class="dot" id="forth_page_for_color" onclick="goToFifthPage()"><a href="#fourth_page">4</a></span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container pages">
+
+        <!-- firstPage -->
+
+        <div id="first_page" style="padding-left: 40px;">
+
+
+          <p>Fill out our quote form in less than 3 minutes and receive a customized quote within a few days.</p>
+
+          <p style="font-weight: bold;">Which concept are you interested in? *</p>
+          <!-- Default checkbox -->
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" onclick="interestedConcept()"
+              value="Lease your rooftop for a solar system" id="leaseRooftop" name="purchase_type" />
+            <label class="form-check-label" for="flexCheckDefault">
+              Lease your rooftop for a solar system
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input mdbCheckbox class="form-check-input" type="checkbox" onclick="interestedConcept()"
+              value="Rent a rooftop solar system" id="rentRooftop" name="purchase_type" />
+            <label class="form-check-label" for="flexCheckDefault">
+              Rent a rooftop solar system
+            </label>
+          </div>
+
+          <!-- Checked checkbox -->
+          <div class="form-check">
+            <input mdbCheckbox class="form-check-input" type="checkbox" checked onclick="interestedConcept()"
+              value="Buy a rooftop solar system" id="buyRooftop" name="purchase_type" />
+            <label class="form-check-label" for="flexCheckChecked">
+              Buy a rooftop solar system
+            </label>
+          </div>
+
+          <p style="font-weight: lighter;">Multiple choices possible - you can receive several offers from us.</p>
+
+          <!-- <p style="font-weight: bold;">Your address *<img onClick="getUserLocation()" src="assets/location.png"
+          alt="Trulli" width="28" height="28"></p> -->
+
+          <!-- <form method="post" accept-charset="utf-8" id="map_form">
+
+
+
+        <input type="text" name="vertices" value="" id="vertices" />
+        <input type="button" name="save" onchange="getLongLat()" value="Save!" id="save" />
+        <img onClick="getUserLocation()" src="location.png" alt="myLocation" width="28" height="28">
+      </form> -->
+
+          <!-- [options]='options' -->
+
+          <!-- <input id="searchTextField" type="text" size="50"> -->
+
+          <!-- <input onkeyup="cities()" id="autocomplete" name="autocomplete_search" type="text" class="form-control"
+        placeholder="Search" /> -->
+
+          <!-- <input ngx-google-places-autocomplete #placesRef="ngx-places" id="searchTextField" value="" formControlName="adress"
+        (onAddressChange)="handleAddressChange($event)" /> -->
+
+          <!-- <input type="button" name="save" onchange="getLongLat()" value="Save!" id="save" />
+      <img onClick="getUserLocation()" src="location.png" alt="myLocation" width="28" height="28"> -->
+
+          <br>
+          <!-- <div class="container">
+          <input ngx-google-places-autocomplete (onAddressChange)="handleAddressChange($event)" />
+          <p>Address: {{ userAddress }}</p>
+          <p>Latitude: {{ userLatitude }}</p>
+          <p>Longitude: {{ userLongitude }}</p>
+        </div> -->
+
+
+          <button type="submit" class="btn btn-primary" onclick="GoToSecondPage()">Next Step</button>
+
+        </div>
+
+        <!-- secondpage -->
+        <div id="second_page" style="display: none;">
+
+
+          <h1 style="text-align: center;">Mark roof surface</h1>
+
+          <p style="font-weight: bold; text-align: center;">Mark your roof area by clicking on the map. The system will
+            automatically
+            calculate
+            your roof area.</p>
+
+          <div class="text-center">
+            <img src="assets\marking.gif" height="30%" width="70%" class="rounded" alt="...">
+          </div>
+<br>
+          <p class="text-center">Marked roof area : <span id="markedroof"> 0 </span> m<sup>2</sup> 
+            <!-- <img onClick="getUserLocation()" src="assets/location.png" alt="myLocation" width="28" height="28"> -->
+            <button onClick="getUserLocation()" class="btn btn-success">Your Location</button>
+          </p>
+
+          <p class="text-center"> <b> OR </b></p>
+
+          <div class="form-group row">
+            <label style="font-weight: bold;" for="inputPassword" class="col-sm-2 col-form-label">Manual Input :
+            </label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" formControlName="surface_manual_input" id="manualInput"
+                placeholder="i.e : 1500">
+              <small id="emailHelp" class="form-text text-muted">The minimum size is 1500m² to purchase or rent a
+                turnkey
+                solar system from Vodasun.</small>
+            </div>
+
+          </div>
+
+          <button type="submit" onclick="goToThirdPage()" class="btn btn-primary">Next Step</button>
+
+          <br>
+
+        </div>
+
+        <!-- <div id="third_page" style="display: none;">
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" formControlName="email_adress" id="inputEmail"
+                aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="inputPassword"
+                placeholder="Password">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" formControlName="check_me_out" value="checked" class="form-check-input" id="check">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" onclick="goToFourthPage()" class="btn btn-primary">Next Step</button>
+
+    </div> -->
+
+        <!-- third -->
+
+        <div id="third_page" style="display: none;padding-left: 30px;">
+
+
+          <p style="font-weight: bold;">Roof type *</p>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-4 formpng text-center" id="Flachdach" onclick="getRoofType('Flachdach')"><img
+                src="assets/Flachdach.png" formControlName="roof_type" class="rounded" alt="...">
+              <p>Flachdach</p>
+            </div>
+            <div class="col-md-4 formpng text-center" id="Grabendach" onclick="getRoofType('Grabendach')"><img
+                src="assets/Grabendach.png" formControlName="roof_type" class="rounded" alt="...">
+              <p>Grabendach</p>
+            </div>
+            <div class="col-md-4 formpng text-center" id="Paralleldach" onclick="getRoofType('Paralleldach')"><img
+                src="assets/Paralleldach.png" formControlName="roof_type" class="rounded" alt="...">
+              <p>Paralleldach</p>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-4 formpng text-center" id="Pultdach" onclick="getRoofType('Pultdach')"><img
+                src="assets/Pultdach.png" class="rounded" alt="...">
+              <p>Pultdach</p>
+            </div>
+            <div class="col-md-4 formpng text-center" id="Pulterweitert" onclick="getRoofType('Pulterweitert')"><img
+                src="assets/Pulterweitert.png" class="rounded" alt="...">
+              <p>Pulterweitert</p>
+            </div>
+            <div class="col-md-4 formpng text-center" id="Satteldach" onclick="getRoofType('Satteldach')"><img
+                src="assets/Satteldach.png" class="rounded" alt="...">
+              <p>Satteldach</p>
+            </div>
+          </div>
+
+          <br>
+
+          <p style="font-weight: bold;">Roof inclination *</p>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-4 formpng text-center" id="0-grad" onclick="getRoofInclination('0-grad')"><img
+                src="assets/0-grad.png" class="rounded" alt="...">
+              <p>0-grad</p>
+            </div>
+            <div class="col-md-4 formpng text-center" id="15-grad" onclick="getRoofInclination('15-grad')"><img
+                src="assets/15-grad.png" class="rounded" alt="...">
+              <p>15-grad</p>
+            </div>
+            <div class="col-md-4 formpng text-center" id="30-grad" onclick="getRoofInclination('30-grad')"><img
+                src="assets/30-grad.png" class="rounded" alt="...">
+              <p>30-grad</p>
+            </div>
+          </div>
+
+          <br>
+
+          <p style="font-weight: bold;">Roofing *</p>
+
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios1" value="Tile" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Tile
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="Corrugated sternit">
+            <label class="form-check-label" for="exampleRadios2">
+              Corrugated sternit
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="Foil">
+            <label class="form-check-label" for="exampleRadios2">
+              Foil
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="standing seam/calzip">
+            <label class="form-check-label" for="exampleRadios2">
+              standing seam/calzip
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="Bitumen">
+            <label class="form-check-label" for="exampleRadios2">
+              Bitumen
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="Trapezoidal sheet metal">
+            <label class="form-check-label" for="exampleRadios2">
+              Trapezoidal sheet metal
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="Sandwich element">
+            <label class="form-check-label" for="exampleRadios2">
+              Sandwich element
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="Green roof">
+            <label class="form-check-label" for="exampleRadios2">
+              Green roof
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" onclick="displayRadioValue()" formControlName="Roofing" type="radio"
+              name="roofing" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="Other">
+              Other
+            </label>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" style="font-weight: bold;" class="col-sm-3 col-form-label">Building height in
+              meter :
+            </label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="building_height" formControlName="Building_height_in_meter"
+                id="inputPassword" placeholder="">
+            </div>
+          </div>
+
+          <br>
+
+          <button type="submit" onclick="goToFifthPage()" class="btn btn-primary">Next Step</button>
+
+
+        </div>
+
+        <!-- fifthPage -->
+        <div id="forth_page" style="display: none;padding-left: 30px;">
+
+          <div class="form-group row">
+            <label style="font-weight: bold;" for="inputPassword" class="col-sm-2 col-form-label">First Name :
+            </label>
+            <div class="col-sm-10">
+              <input formControlName='firstname' type="text" class="form-control" id="firstname"
+                placeholder="First Name">
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" style="font-weight: bold;" class="col-sm-2 col-form-label">Last Name :
+            </label>
+            <div class="col-sm-10">
+              <input formControlName='lastname' type="text" class="form-control" id="lastname" placeholder="Last Name">
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label" style="font-weight: bold;">Company : </label>
+            <div class="col-sm-10">
+              <input formControlName='company' type="text" class="form-control" id="company" placeholder="Company">
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label" style="font-weight: bold;">Address : </label>
+            <div class="col-sm-10">
+              <input formControlName='address' type="text" class="form-control" id="adress" placeholder="Address">
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label" style="font-weight: bold;">Country : </label>
+            <div class="col-sm-10">
+              <input formControlName='country' type="text" class="form-control" id="country" placeholder="Country">
+            </div>
+          </div>
+
+          <br>
+          <div class="form-group row">
+            <label for="inputPassword" style="font-weight: bold;" class="col-sm-2 col-form-label">Email : </label>
+            <div class="col-sm-10">
+              <input formControlName='email' type="email" class="form-control" id="email" placeholder="Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                else.</small>
+            </div>
+          </div>
+
+          <br>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label" style="font-weight: bold;">Phone Number :
+            </label>
+            <div class="col-sm-10">
+              <input type="number" formControlName='phonenumber' class="form-control" id="phonenumber"
+                placeholder="Phone Number">
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label" style="font-weight: bold;">Annual power
+              consumption :
+            </label>
+            <div class="col-sm-10">
+              <input formControlName='consumption' type="number" class="form-control" id="anual_power_consumption"
+                placeholder="Annual power consumption">
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2" style="font-weight: bold;">I would like additional
+              information :
+            </label>
+            <div class="col-sm-10">
+              <select id="inputState" class="form-control">
+                <option selected disabled>Choose</option>
+                <option>Electromobility</option>
+                <option>Energy storage</option>
+                <option>Smart electicity meters</option>
+                <option>Green roof</option>
+                <option>Solar carport</option>
+                <option>Roof restauration</option>
+                <option>Heat solution</option>
+              </select>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label formControlName='notes' for="inputPassword" class="col-sm-2 col-form-label"
+              style="font-weight: bold;">Notes and details :
+            </label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="notes_and_details" placeholder="Notes and details" rows="3"></textarea>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group row">
+            <label for="inputPassword" style="font-weight: bold;" class="col-sm-2 col-form-label">File : </label>
+            <div class="col-sm-10">
+              <input class="form-control" accept="image/png, image/gif, image/jpeg" type="file" id="formFile">
+            </div>
+          </div>
+
+          <label for="privacycheck" style="font-weight: bold;" class="col-sm-2 col-form-label">Privacy policy
+            *</label>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="privacycheck">
+            <small class="form-check-label" for="privacycheck">Yes, I agree that ENVIRIA may use my personal data
+              for
+              thepurpose of preparing an offer until revoked. Formore information, please refer to our privacy
+              policy.</small>
+          </div>
+
+          <br>
+
+
+          <!-- <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Submit</button> -->
+          <button type="submit" id="submit_button" onclick="submit()" class="btn btn-primary">Save</button>
+
+          <!-- modal -->
+          <!-- data-toggle="modal" data-target="#exampleModalLabel" -->
+          <div class="modal fade" id="exampleModalLabel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content" style="text-align: center; height: 50px; padding-top: 4%;     background-color: #505c54;
+          color: white;
+          font-weight: 700;">
+                Saved
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+      </main>
+
+    </div>
+
+    <div class="col-md-6">
+      <div id="map-canvas"></div>
+
+      <div style="margin: 5px; padding: 5px;">
+        <div class="row">
+          <div class="col-11">
+            <input onkeyup="cities()" id="autocomplete" name="autocomplete_search" type="text"
+              class="form-control increase_width" placeholder="Search" />
+          </div>
+          <!-- <div class="col-1">
+      <input onClick="getUserLocation()" style="float: right; " type="button" onclick="clearMarkedArea()" class="btn btn-primary" value="my location">
+    </div> -->
+          <div class="col-1 mx-auto mobile_responsive" style="margin-left: 0 !important;">
+            <!-- <img onClick="getUserLocation()" src="assets/loc.png" alt="location" width="28" height="28"> -->
+            <img onClick="clearMarkedArea()" src="assets/remove.png" alt="remove" width="28" height="28">
+            <!-- <input style="float: right;" type="button" onclick="clearMarkedArea()" class="btn btn-primary" value="clear map"> -->
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <form method="post" accept-charset="utf-8" id="map_form"> -->
+      <input hidden="true" type="text" name="vertices" value="" id="vertices" />
+      <!-- <input class="btn btn-primary" type="button" name="save" onchange="getLongLat()" value="Save!" id="save" /> -->
+      <!-- <img onClick="getUserLocation()" src="location.png" alt="myLocation" width="28" height="28"> -->
+      <!-- </form> -->
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="grid gap-t-xl gap-b-l">
+      <div style="display:flex" class="grid__item sm-s0-s6">
+        <div>
+          <div class="footer__logo"><svg id="logo-vodasun_svg__Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0"
+              viewBox="0 0 181 33" style="enable-background:new 0 0 181 33" xml:space="preserve" type="logo">
+              <style>
+                .logo-vodasun_svg__st0 {
+                  fill: none
+                }
+
+                .logo-vodasun_svg__st1 {
+                  fill-rule: evenodd;
+                  clip-rule: evenodd;
+                  fill: #ff8c22
+                }
+              </style>
+              <path class="logo-vodasun_svg__st0"
+                d="M12.2 23.3 17.4.5h7l-9 31.4H8.9L0 .5h7l5.2 22.8zM60.2 31.9V.5h8.3c3.7 0 6.6 1.2 8.8 3.5 2.2 2.3 3.3 5.5 3.3 9.6v5.1c0 4.1-1.1 7.4-3.3 9.7-2.2 2.4-5.2 3.5-9 3.5h-8.1zm6.4-26.1v20.8h1.9c2.1 0 3.6-.6 4.5-1.7.9-1.1 1.3-3 1.4-5.8v-5.5c0-2.9-.4-5-1.2-6.1S71 5.7 69 5.7h-2.4v.1zM99.4 25.5h-8.6l-1.7 6.4h-6.7L92.1.5H98l9.8 31.4h-6.7l-1.7-6.4zm-7.2-5.3H98L95.1 9l-2.9 11.2zM123.7 23.6c0-1.3-.3-2.2-1-2.9-.7-.6-1.8-1.3-3.5-2-3.1-1.2-5.4-2.6-6.7-4.2s-2.1-3.5-2.1-5.6c0-2.6.9-4.7 2.8-6.3 1.9-1.6 4.2-2.4 7.1-2.4 1.9 0 3.6.4 5.1 1.2 1.5.8 2.6 1.9 3.4 3.4.8 1.5 1.2 3.1 1.2 5h-6.3c0-1.5-.3-2.6-.9-3.3-.6-.8-1.5-1.1-2.7-1.1-1.1 0-1.9.3-2.6 1-.6.6-.9 1.5-.9 2.6 0 .9.3 1.6 1 2.3.7.7 1.9 1.4 3.6 2.2 3 1.1 5.2 2.4 6.6 4 1.4 1.6 2.1 3.6 2.1 6.1 0 2.7-.9 4.8-2.6 6.4-1.7 1.5-4.1 2.3-7 2.3-2 0-3.8-.4-5.5-1.2-1.7-.8-2.9-2-3.9-3.6-.9-1.5-1.4-3.4-1.4-5.5h6.3c0 1.8.3 3.1 1 3.9.7.8 1.8 1.2 3.4 1.2 2.4 0 3.5-1.2 3.5-3.5zM154.4.5v21.6c0 3.2-.9 5.7-2.7 7.5-1.7 1.7-4.2 2.6-7.5 2.6s-5.8-.9-7.6-2.6c-1.8-1.7-2.6-4.3-2.6-7.6V.5h6.3V22c0 1.8.3 3 .9 3.8.6.8 1.6 1.1 3.1 1.1s2.5-.4 3.1-1.1c.6-.8.8-2 .9-3.7V.5h6.1zM181 32h-6.2l-9.1-20.6V32h-6.2V.6h6.2l9.2 20.6V.6h6.2L181 32z">
+              </path>
+              <path class="logo-vodasun_svg__st1"
+                d="M31.5 3.6c0 .2 0 .3.3.5l6.4 7.6c.2.3.5.4.8.5.3.1.6-.1.9-.3.2-.2.3-.5.3-.9V1.1c0-.4 0-.4-.1-.6-.1-.2-.2-.2-.4-.2-2.8.2-5.5 1.2-7.9 2.9-.2.1-.3.2-.3.4zM25.6 12.6c.1.1.2.2.5.2l9.8 1.7c.3.1.7 0 .9-.1.3-.2.4-.5.5-.8 0-.3-.1-.6-.3-.9l-5-5.9-1.4-1.7c-.2-.3-.3-.3-.5-.3s-.3 0-.4.1c-2 1.9-3.5 4.4-4.2 7.3-.1.1-.1.3.1.4zM26.8 23.3c.2 0 .3 0 .6-.2l8.6-5c.3-.2.5-.4.6-.7.1-.3 0-.6-.2-.9-.2-.3-.5-.4-.8-.5L28 14.8l-2.1-.4c-.3-.1-.4 0-.6 0-.2.1-.2.2-.2.3-.3 2.8.2 5.6 1.4 8.3 0 .2.1.3.3.3zM34.6 30.7c.1-.1.2-.2.3-.5l3.4-9.3c.1-.3.1-.6 0-.9-.1-.3-.4-.5-.7-.6-.3-.1-.6 0-.9.2L30 23.5l-1.9 1.1c-.3.2-.4.3-.4.4-.1.2 0 .3 0 .4 1.6 2.3 3.8 4.2 6.4 5.4.2 0 .4 0 .5-.1zM45.4 31.3c0-.1.1-.3-.1-.6l-3.4-9.3c-.1-.3-.3-.6-.6-.7-.3-.2-.6-.1-.9 0-.3.1-.5.4-.6.7l-2.6 7.3-.7 2c-.1.3-.1.4-.1.6.1.2.2.3.3.3 2.7.7 5.6.8 8.4 0 .1 0 .2-.1.3-.3zM54 24.9c-.1-.1-.1-.2-.4-.4l-8.6-5c-.3-.2-.6-.2-.9-.2-.3.1-.6.3-.7.6-.1.3-.1.6 0 .9l2.6 7.3.7 2c.1.3.2.4.3.5.2.1.3.1.4.1 2.5-1.2 4.8-3 6.4-5.4.2-.1.3-.2.2-.4zM56.5 14.4c-.1-.1-.2-.1-.6 0l-9.8 1.7c-.3.1-.6.2-.8.5-.2.3-.2.6-.2.9.1.3.3.5.6.7l6.7 3.9 1.9 1.1c.3.2.4.2.6.2.2 0 .3-.1.3-.2 1.2-2.5 1.7-5.3 1.5-8.3 0-.2 0-.4-.2-.5zM51.7 4.8c-.1 0-.3.1-.5.3l-6.4 7.6c-.2.3-.3.6-.3.9 0 .3.2.6.5.8.3.2.6.2.9.1l7.6-1.3 2.1-.4c.3-.1.4-.1.5-.2.1-.1.1-.3.1-.4-.7-2.7-2.1-5.2-4.2-7.3 0 0-.1-.1-.3-.1zM41.8.6c-.1.1-.1.2-.1.6V11c0 .4.1.6.3.9.2.3.5.3.9.3.3 0 .6-.2.8-.5l5-5.9L50 4.2c.2-.3.2-.4.3-.5 0-.2-.1-.3-.2-.4-2.3-1.6-5-2.6-7.9-2.9-.1 0-.3 0-.4.2z">
+              </path>
+            </svg></div>
+        </div>
+      </div>
+      <div style="display:flex;    width: 87%;
+        justify-content: flex-end;" class="grid__item sm-s0-s6 impressum">
+        <div><a class="footer__link" href="impressum.html">Impressum</a></div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="Pagination.js"></script>
+  <script src="SaveForm.js"></script>
+
+</body>
+
+</html>
